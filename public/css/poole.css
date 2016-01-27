@@ -345,10 +345,12 @@ tbody tr:nth-child(odd) th {
  */
 
 .masthead {
+  list-style-type: none;
   padding-top:    1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
   margin-left: 18rem;
+  position: fixed;
 }
 .masthead-title {
   margin-top: 0;
