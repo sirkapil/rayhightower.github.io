@@ -57,6 +57,9 @@ html {
 
 /* by RTH: Determine what gets shown on iPad or larger displays. */
 @media (max-width: 45em) {
+  .masthead {
+    display: none;
+  }
   .sidebar-featured {
     display: none;
   }
@@ -345,10 +348,14 @@ tbody tr:nth-child(odd) th {
  */
 
 .masthead {
+  background: #1E2A28 url("/images/parallella_wide_2.jpg") center center;
+  /* background-image: url("/images/parallella_wide_1.jpg") center center;
+  background-repeat: repeat-x; */
+  z-index: +1;
   list-style-type: none;
   padding-top:    1rem;
   padding-bottom: 1rem;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
   margin-left: 18rem;
   position: fixed;
 }
