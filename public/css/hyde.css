@@ -80,6 +80,14 @@ html {
   }
 }
 
+/* Masthead */
+.masthead h1 {
+  color: #fff;
+  margin-top: 0;
+  font-family: "Arvo", serif;
+  font-size: 1.50rem;
+}
+
 /* Sidebar links */
 .sidebar a {
   color: #fff;
