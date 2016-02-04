@@ -5,7 +5,7 @@ date: 2014-01-21 13:16
 comments: true
 tags: [ Community ]
 ---
-Here is an early draft of the [WindyCityRails](http://windycityrails.org) Code of Conduct:
+Here is an early draft of the [WindyCityRails](http://windycityrails.com) Code of Conduct:
 
 >WindyCityRails strives to provide a healthy, harassment-free conference experience for all attendees. Our Code of Conduct, which has been practiced by members of our community for years, is as follows: Treat everyone at the conference as you would want yourself, a family member, or an esteemed colleague to be treated. Our community is stronger when every member contributes to the safety and learning of the other members. We are colleagues, and we treat each other with respect.
 
@@ -31,7 +31,7 @@ Last week a Twitter user asked if WindyCityRails had a code of conduct. I respon
 
 Why the terse response? Because I have a deep bias against bureaucracy. Initially, that's what a code of conduct sounded like to me. Do we have a problem with diversity in the tech community? Hell yes. But bureaucracy does not solve problems. We will only solve the diversity problem through active engagement and real work. We solve the diversity problem by ensuring that people from all groups feel welcome and engaged.
 
-One example of real work: The [WindyCityRails Youth Program](http://www.windycityrails.org/youth/), launched last year. A diverse group of college students taught a diverse group of high school students how to program the Arduino. These students from diverse backgrounds bonded via their common interest in technology.
+One example of real work: The [WindyCityRails Youth Program](https://vimeo.com/74022351), launched last year. A diverse group of college students taught a diverse group of high school students how to program the Arduino. These students from diverse backgrounds bonded via their common interest in technology.
 
 To summarize my knee-jerk response: A code of conduct makes us feel good about nice words written on a sheet of paper, while no real work gets done.
 
@@ -89,7 +89,7 @@ Some may point out that without a method of enforcement, the code has no teeth. 
 
 There you have it... my opinion. Can my opinion change? Perhaps. I have many blind spots, and that is why I am sharing my thought process. I look forward to hearing your feedback in the comments below or over a cup of coffee.
 
-By the way, the [WindyCityRails call for proposals](http://www.windycityrails.org) is still open, as of the date of this post. If you are doing something exciting with Ruby and/or Rails, please submit a proposal. Thanks.
+By the way, the [WindyCityRails call for proposals](http://www.windycityrails.com) is still open, as of the date of this post. If you are doing something exciting with Ruby and/or Rails, please submit a proposal. Thanks.
 
 ### _Update (Jan 2014)_
 
