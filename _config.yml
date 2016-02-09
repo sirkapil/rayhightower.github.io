@@ -5,10 +5,6 @@ tagline: Ruby, Rails, & IoT
 baseurl: / # the subpath of your site, e.g. /blog/
 url: "http://rayhightower.com" # the base hostname & protocol for your site
 permalink: /blog/:year/:month/:day/:title/
-
-twitter_username: rayhightower
-github_username: rayhightower
-
 excerpt_link: "Continue reading &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 excerpt_separator: <!--more-->
 
@@ -21,19 +17,18 @@ redcarpet:
     - autolink
     - footnotes
     - smart
-highlighter: pygments # default python pygments have been replaced by pygments.rb
-  
+# highlighter: pygments # default python pygments have been replaced by pygments.rb
+# highlighter: rouge # GitHub switches from pygments to rouge on 01May2016
 
 # Disqus Comments
 disqus_short_name: rayhightower
-# disqus_short_name:
 disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-330946-28
-# google_analytics_tracking_id:
 
 # Twitter
+twitter_username: rayhightower
 twitter_user:
 twitter_tweet_button: true
   
@@ -48,6 +43,7 @@ author:
 
 paginate:         5
 
+github_username: rayhightower
 github:
   repo:           https://github.com/rayhightower
 

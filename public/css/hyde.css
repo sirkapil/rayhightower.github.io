@@ -60,6 +60,18 @@ html {
   right: 10px;
 }
 
+/* fill in bottom of left side bar so it's flush with the content */
+.sidebar-bottom {
+  background-color: #202020;
+  width: 18rem;
+  height: 100em;
+  float: left;
+  margin: -21rem;
+  bottom: 0;
+  position: fixed;  /* what does position mean? */
+  z-index: -1;
+}
+
 .observations li {
   margin-bottom: 20px;
 }
