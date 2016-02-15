@@ -22,14 +22,15 @@ This article will show how to install Ubuntu on the BeagleBone Black. _Gotchas_ 
 
 For a comparable examination of the Raspberry Pi, take a look at [Ruby on Raspberry Pi](/blog/2012/12/03/ruby-on-raspberry-pi/).
 
-###First Gotcha: Ubuntu 13 on the Bone
+###  First Gotcha: Ubuntu 13 on the Bone
+
 As of this writing, Ubuntu 12 runs well on the BeagleBone Black, but Ubuntu 13 does not. My Ubuntu 13 installation appeared to be successful, but the Ubuntu 13 GUI hung up immediately after login. The Ubuntu 13 command line interface worked fine. 
 
 A quick search on Google reveals that others encountered similar roadblocks with version 13. One successful Bone/13 installation was used via SSH, not interactively via keyboard and GUI. Hopefully this will change with future updates. Or, since we're dealing in the open source world, maybe I can pitch in and help.
 
 Due to the issues encountered with version 13, everything in this article will focus on Ubuntu 12.
 
-###Materials Needed for Installing Ubuntu 12
+### Materials Needed for Installing Ubuntu 12
 In addition to the BeagleBone Black, the following items should be gathered before installation:
 
 * Micro SD card of at least 8GB. It's possible to perform the installation with a 4GB card, but that won't leave much room for Ubuntu applications.
@@ -44,12 +45,12 @@ In addition to the BeagleBone Black, the following items should be gathered befo
 
 The standard [sudo disclaimer](/sudo-disclaimer) applies.
 
-###Homebrew Required
+### Homebrew Required
 Homebrew is the easiest way to install 'nix utilities on Mac OS X. We need Homebrew in order to install some of the utilities needed to burn the SD card. The one-line Homebrew installation command is given on the  [Homebrew site](http://brew.sh/).
 
 Each time we use Homebrew, we run `$ brew doctor` and `$ brew update` to make sure the packages are up-to-date.
 
-```bash
+~~~bash
 $ brew doctor
 Warning: Your Homebrew is outdated.
 You haven't updated for at least 24 hours, this is a long time in brewland!
@@ -60,16 +61,16 @@ Updated Homebrew from a2e44659 to 4c7bc9ec.
 
 $ brew doctor
 Your system is ready to brew.
-```
+~~~
 
-###The xz Extraction Utility
+### The xz Extraction Utility
 Disk image files are downloaded in a compressed format. We need the `xz` utility in order to extract the files into something usable. If you already have Homebrew installed, this command will install `xz` for you.
 
-```bash
+~~~bash
 $ brew install xz
-```
+~~~
 
-###Test the BeagleBone Black First
+### Test the BeagleBone Black First
 Power up your BeagleBone Black and make sure it runs with the built-in Ångström Linux installation. One great thing about the Bone is that it will [boot to the Ångström GUI](/blog/2013/05/22/beaglebone-black-running-ruby-on-rails/) straight out of the box, with no prior configuration.
 
 If the GUI boots, then you're in good shape.
@@ -81,24 +82,24 @@ If the GUI doesn't boot, it may have been damaged in a prior experiement. Embara
 
 Option two worked well!
 
-###Prep the SD Card
+### Prep the SD Card
 Apple's Disk Utility is a convenient tool for wiping the SD card.  Standard warnings about any disk utility apply. Double-check everything, and make sure you're wiping the right volume, or you could lose all of your data.
 
 Next, download the Ubuntu 12.04 image from [http://armhf.com](http://www.armhf.com/index.php/boards/beaglebone-black/#precise).
 
 Extract the image using the `xz` utility.
-```bash
+~~~bash
 $ xz ubuntu-precise-12.04.3-armhf-3.8.13-bone30.img.xz
-```
+~~~
 
 The extracted image will have a `.img` file extension. We will use the `dd` utility to burn the disk image to the SD card. But first, we need to determine the designation of the SD card.
 
-###Find the SD Card Designation
+### Find the SD Card Designation
 In order to burn the SD card, we need to make sure we target it correctly. Here's how to figure out which device to target.
 
 `$ diskutil list` will show all of the partitions mounted on the system.
 
-```bash
+~~~bash
 $ diskutil list
 /dev/disk0
    #:                       TYPE NAME                    SIZE       IDENTIFIER
@@ -109,29 +110,29 @@ $ diskutil list
 /dev/disk1
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:     FDisk_partition_scheme                        *8.0 GB     disk1
-```
+~~~
 I happen to know that my SD Card is 8.0 GB in capacity, and my system also has a 500 GB SSD. The goal is to burn the SD card while leaving the 500 GB SSD (home of the Mac OS X operating system and all of my data) intact. From the `$ diskutil list` report, I can see that the SD card's designation _in my system_ is `/dev/disk1`.
 
 Note the italicized words _in my system_. Your system is probably different, especially if you have a DVD drive or a second hard drive. I have neither of those. The SD card's designation will be different in each system where it is mounted depending on the number and location of the drives that are already there.
 
 Now that we know the SD card's designation, we can unmount it. We unmount the drive (but leave the card inserted in the reader) so that it can be written with the Ubuntu disk image.
 
-```bash
+~~~bash
 $ diskutil unmountDisk /dev/disk1
 Unmount of all volumes on disk1 was successful
-```
+~~~
 
 Looks like the SD card was unmounted successfully. Now we can write the
 Ubuntu image with the `dd` utility.
 
-###Writing the Ubuntu Image
+### Writing the Ubuntu Image
 The following command will write the decompressed Ubuntu image to the SD
 card.
 
-```bash
+~~~bash
 $ sudo dd bs=1m if=ubuntu-precise-12.04.3-armhf-3.8.13-bone30.img of=/dev/disk1
 
-```
+~~~
 
 Note that it may take up to an hour for the image to be written. 
 
@@ -139,15 +140,15 @@ One drawback of using the command line is that there is no gauge to tell you how
 
 Here's a report from the first time I struck `control-T` ...
 
-```bash
+~~~bash
 load: 2.03  cmd: dd 75608 uninterruptible 0.00u 0.54s
 40+0 records in
 39+0 records out
-```
+~~~
 
 We can strike `control-T` again to receive additional updates. The numbers will tell us if we are making progress. Don't get carried away with `control-T`. A watched pot never boils :-)
 
-###Booting with the New SD Card
+### Booting with the New SD Card
 The terminal will return to the command prompt after the Ubuntu image has been written to the SD card. Now it's time to boot with the new image.
 
 1. Eject the SD card from the Mac. 
@@ -160,15 +161,15 @@ About sixty seconds after boot, the Linux penguin appeared in the upper left cor
 
 Another note about the "boot" switch: It looks like the Bone will boot into the SD's operating system (instead of the eMMC flash OS where Angstrom resides) without the micro switch if the switch was used in the previous boot. I haven't rebooted enough times to test this thoroughly.
 
-###Default Credentials for Ubuntu on BeagleBone Black
+### Default Credentials for Ubuntu on BeagleBone Black
 Ubuntu's default BeagleBone Black login credentials are shown here because I always end up hunting for these when I need them. It's much easier to have information at one's fingertips.
 
-```bash
+~~~bash
 login: ubuntu
 pw: ubuntu
-```
+~~~
 
-###End of Part One
+### End of Part One
 This marks the end of part one of this series about BeagleBone Black and Ubuntu.
 
 [Part two](/blog/2014/01/06/beaglebone-black-ubuntu-ruby-rails-part-2/) covers [Ruby on BeagleBone Black](/blog/2014/01/06/beaglebone-black-ubuntu-ruby-rails-part-2/), with information about...

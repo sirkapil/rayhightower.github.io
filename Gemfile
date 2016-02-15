@@ -2,8 +2,11 @@
 source "https://rubygems.org"
 
 # gem "rails"
-ruby '2.2.3'
+# ruby '2.3.0'
  
 gem 'activesupport', '~>4.1'
 gem 'rake'
-gem 'rouge', '1.3.0'
+gem 'jekyll', '3.1.1'
+gem 'jekyll-feed'
+gem 'jekyll-paginate'
+gem 'rouge', '1.7.0'
